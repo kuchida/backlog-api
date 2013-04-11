@@ -118,6 +118,12 @@ module Backlog
       self.call("backlog.countIssue", condition.to_h)
     end
 
+    def find_issue(condition)
+      raise Backlog::API::ArgumentError, "must specify 'projectId'" unless condition.has_key? "projectId"
+      condition = Backlog::Object::FindCondition.new(condition)
+      self.call("backlog.findIssue", condition.to_h)
+    end
+
     # String(Integer) -> Integer
     # String(String) -> String
     # Integer -> Integer
