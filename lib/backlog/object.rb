@@ -229,6 +229,17 @@ module Backlog
         created_on_max
         updated_on_min
         updated_on_max
+        start_date_min
+        start_date_max
+        due_date_min
+        due_date_max
+        query
+        sort
+        order
+        offset
+        limit
+        file
+        custom_fields
       ].each {|k|
         class_eval { attr_reader k.to_sym }
       }
